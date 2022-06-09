@@ -1,0 +1,47 @@
+CREATE TABLE departments(
+    id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    firstname varchar(255),
+    description MEDIUMTEXT CHARACTER SET utf8 COLLATE utf8_unicode_ci
+);
+
+CREATE TABLE departments(
+    name varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL PRIMARY KEY,
+    code integer,
+    status boolean
+)ENGINE=INNODB;
+
+//insert
+$str = "INSERT INTO departments (name,code,status)
+            VALUES ('$dep_name',$dep_code,$status)";
+
+<?php 
+$username = "root";
+$password = "";
+$hostname = "localhost"; 
+$db = "";
+
+$conn = mysqli_connect($hostname, $username, $password, $db);
+
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+echo "Connected successfully";
+
+?>
+
+CREATE TABLE employees(
+    id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    name varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci,
+    email varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci,
+    status boolean,
+    department varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci,
+    FOREIGN KEY (department) REFERENCES departments(name)
+);
+
+CREATE TABLE employees(
+    id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    name varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci,
+    email varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci,
+    status boolean,
+    
+);
